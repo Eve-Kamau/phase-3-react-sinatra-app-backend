@@ -23,9 +23,13 @@ class ApplicationController < Sinatra::Base
   post '/jobs' do
      job = Job.create(
       job_title: params[:job_title],
+      job_description: params[:job_description],
       job_type: params[:job_type],
+      job_postdate: params[:job_postdate],
       job_payrate: params[:job_payrate],
-      employer_id: params[:employer_id])
+      job_location: params[:job_location],
+      job_industry: params[:job_industry],
+      job_companyname: params[:job_companyname])
     job.to_json
     end
 
@@ -34,14 +38,14 @@ class ApplicationController < Sinatra::Base
     job.destroy
   end
   
-  patch '/jobs/:id' do
-    job = Job.find(params[:id])
-    job.update(
-      score: params[:score],
-      comment: params[:comment]
-    )
-    review.to_json
-  end
+  # patch '/jobs/:id' do
+  #   job = Job.find(params[:id])
+  #   job.update(
+  #     score: params[:score],
+  #     comment: params[:comment]
+  #   )
+  #   review.to_json
+  # end
 
   get '/employers' do
     employers = Employer.all.order(:title).limit(10)

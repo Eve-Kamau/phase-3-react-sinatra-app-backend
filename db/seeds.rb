@@ -38,7 +38,7 @@ Job.create(
     job_payrate: "$140,000 - 190,000",
     job_location: "Seattle, United States",
     job_industry: "Technology",
-    employer_id: 1)
+    job_companyname: "Microsoft Corporation")
 
 Job.create(
     job_title: "Network Administrator",
@@ -48,7 +48,7 @@ Job.create(
     job_payrate: "$75,000 - 100,000",
     job_location: "Cairo, Egypt",
     job_industry: "Telecommunications",
-    employer_id: 2)
+    job_companyname: "Vodafone Egypt")
 
 Job.create(
     job_title: "Web Developer",
@@ -58,7 +58,7 @@ Job.create(
     job_payrate: "$120,000 - 160,000",
     job_location: "Nairobi, Kenya",
     job_industry: "Web Development",
-    employer_id: 1)
+    job_companyname: "Microsoft Corporation")
 
 
 puts "✅ Done seeding!"
