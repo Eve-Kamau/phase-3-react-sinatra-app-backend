@@ -1,11 +1,6 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
-  get "/" do
-    { message: "Good luck with your project!" }.to_json
-  end
-  
   get '/' do
     "Welcome to the World of Opportunities in Africa!!"
   end
@@ -20,7 +15,7 @@ class ApplicationController < Sinatra::Base
     job.to_json
   end
 
-  post '/jobs' do
+  post '/jobs/new' do
      job = Job.create(
       job_title: params[:job_title],
       job_description: params[:job_description],
@@ -46,6 +41,16 @@ class ApplicationController < Sinatra::Base
   #   )
   #   review.to_json
   # end
+
+  get '/applicants' do
+    applicants = Applicant.all
+    applicants.to_json
+  end
+
+  get '/applicants/:id' do
+    applicants = Applicant.find(params[:id])
+    applicants.to_json
+  end
 
   get '/employers' do
     employers = Employer.all.order(:title).limit(10)
